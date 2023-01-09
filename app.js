@@ -14,3 +14,27 @@
 //add display element that congratulates the winner
 
 //////---- START BELOW ----//////
+//gameboard module
+const gameBoard = (function() {
+    'use strict';
+
+    let gameBoardXO = {};
+
+})();
+
+//display controller module
+const displayController = (() => {
+    'use strict';
+})
+
+//player factory function
+const players = (name, symbolXO) => {
+    //what can players do
+    let placeSymbol = () => {
+        //function body here
+    };
+
+    let result = () => {
+        //check for 3 in a row or else tie if board is full
+    }
+};

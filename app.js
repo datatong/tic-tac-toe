@@ -33,16 +33,19 @@ const displayController = (() => {
 })
 
 //player factory function
-const players = (name, symbolXO) => {
+const Player = (name, symbolXO) => {
     //what can players do
     let placeSymbol = () => {
         field.addEventListener("click", () => {
             //places X or O into the field of the grid
+            gameBoardXO.push(Player.symbolXO);
         });
     };
 };
 
 //create player objects
+const player1 = Player('Player1', 'X');
+const player2 = Player('Player 2', 'O');
 
 ////DOM SELECTORS////
 var field = document.getElementById("field");

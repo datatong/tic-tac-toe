@@ -20,6 +20,11 @@ const gameBoard = (function() {
 
     let gameBoardXO = {};
 
+    //not sure where this function goes yet
+    let result = () => {
+        //check for 3 in a row or else tie if board is full
+    }
+
 })();
 
 //display controller module
@@ -31,10 +36,13 @@ const displayController = (() => {
 const players = (name, symbolXO) => {
     //what can players do
     let placeSymbol = () => {
-        //function body here
+        field.addEventListener("click", () => {
+            //places X or O into the field of the grid
+        });
     };
-
-    let result = () => {
-        //check for 3 in a row or else tie if board is full
-    }
 };
+
+//create player objects
+
+////DOM SELECTORS////
+var field = document.getElementById("field");

@@ -1,0 +1,33 @@
+
+.game-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.player-container {
+    display: flex;
+}
+
+.grid-container {
+    display: flex;
+    justify-content: center;
+    background-color: lightgray;
+    padding-top: 5%;
+    padding-right: 5%;
+    padding-bottom: 5%;
+    padding-left: 5%;
+}
+
+.grids {
+    display: inline-grid;
+    grid-template-columns: auto auto auto;
+    background-color: white;
+}
+
+.field {
+    border: 2px solid black;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+}

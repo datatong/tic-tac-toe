@@ -28,8 +28,10 @@ const gameBoard = (function() {
 })();
 
 //display controller module
+//controls the flow of the game
 const displayController = (() => {
     'use strict';
+    //starts at player1 and alternates players after placing symbol
 })
 
 //player factory function
@@ -39,8 +41,13 @@ const Player = (name, symbolXO) => {
         field.addEventListener("click", () => {
             //places X or O into the field of the grid
             gameBoardXO.push(Player.symbolXO);
-        });
+
+            console.log(Player.name + " made a move.")
+        });        
     };
+
+    //return to access local scopes from global
+    return {placeSymbol};
 };
 
 //create player objects

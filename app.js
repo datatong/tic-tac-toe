@@ -16,14 +16,30 @@
 //////---- START BELOW ----//////
 const gameBoardModule = (function() {
     'use strict';
+
     let gameBoardXO = [];
     return {gameBoardXO};
+
 })();
 
 //controls the flow of the game
 const displayControllerModule = (() => {
     'use strict';
-    //ToDo: define winnig combinations and game/player state
+    //ToDo: define winning combinations and game/player state
+    const winCombos = [
+        [0,1,2],
+        [3,4,5],
+        [6,7,8],
+        [0,3,6],
+        [1,4,7],
+        [2,5,8],
+        [0,4,8],
+        [2,4,6]
+    ];
+
+    let winner = null;
+    let turn = 0;
+    let winnerCombo = [];
 
     //ToDo: starts at player1 and alternates players after placing symbol
     const playerTurn = (function () {
@@ -51,9 +67,11 @@ const Player = (name, symbolXO) => {
     return {placeSymbol};
 };
 
+/*
 //ToDo: click on gameboard and add in the correct array index (not sure if required)
 const dataIndex = document.querySelectorAll(".data-index");
 dataIndex[i] = gameBoardXO[i];
+*/
 
 //create player objects
 const player1 = Player('Player1', 'X');

@@ -17,16 +17,12 @@
 const gameBoardModule = (function() {
     'use strict';
 
+    //board array
     let gameBoardXO = [];
     return {gameBoardXO};
 
-})();
-
-//controls the flow of the game
-const displayControllerModule = (() => {
-    'use strict';
-    //ToDo: define winning combinations and game/player state
-    const winCombos = [
+    //define winning combinations and starting player & game state
+    const winningCombos = [
         [0,1,2],
         [3,4,5],
         [6,7,8],
@@ -41,19 +37,29 @@ const displayControllerModule = (() => {
     let turn = 0;
     let winnerCombo = [];
 
-    //ToDo: starts at player1 and alternates players after placing symbol
+    //ToDo: player functions and flow of the game
     const playerTurn = (function () {
+        const field = document.querySelectorAll(".field");
+        field.forEach()
         //
     });
 
-    //ToDo: end game
-    let result = () => {
-        //check for 3 in a row or else tie if board is full
+    //ToDo: game state validation
+    let checkGame = () => {
+        //ToDo: check for winning combos or determine a tie if board is full
+        //ToDo: else continue the game
     }
 })();
 
+//controls the display
+const displayControllerModule = (() => {
+    'use strict';
+    //ToDo: display turn player
+    //ToDo: display winner
+})();
+
 //player factory function
-const Player = (name, symbolXO) => {
+const Player = (name, symbolXO, turn) => {
     //what can players do
     let placeSymbol = () => {
         field.addEventListener("click", () => {
@@ -67,15 +73,9 @@ const Player = (name, symbolXO) => {
     return {placeSymbol};
 };
 
-/*
-//ToDo: click on gameboard and add in the correct array index (not sure if required)
-const dataIndex = document.querySelectorAll(".data-index");
-dataIndex[i] = gameBoardXO[i];
-*/
-
 //create player objects
-const player1 = Player('Player1', 'X');
-const player2 = Player('Player 2', 'O');
+const player1 = Player('Player 1', 'X', true);
+const player2 = Player('Player 2', 'O', false);
 
 ////DOM SELECTORS////
-var field = document.getElementById("field");
+

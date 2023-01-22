@@ -14,33 +14,34 @@
 //add display element that congratulates the winner
 
 //////---- START BELOW ----//////
-//gameboard module
-const gameBoard = (function() {
+const gameBoardModule = (function() {
     'use strict';
+    let gameBoardXO = [];
+    return {gameBoardXO};
+})();
 
-    let gameBoardXO = {};
+//controls the flow of the game
+const displayControllerModule = (() => {
+    'use strict';
+    //ToDo: define winnig combinations and game/player state
 
-    //not sure where this function goes yet
+    //ToDo: starts at player1 and alternates players after placing symbol
+    const playerTurn = (function () {
+        //
+    });
+
+    //ToDo: end game
     let result = () => {
         //check for 3 in a row or else tie if board is full
     }
-
 })();
-
-//display controller module
-//controls the flow of the game
-const displayController = (() => {
-    'use strict';
-    //starts at player1 and alternates players after placing symbol
-})
 
 //player factory function
 const Player = (name, symbolXO) => {
     //what can players do
     let placeSymbol = () => {
         field.addEventListener("click", () => {
-            //places X or O into the field of the grid
-            gameBoardXO.push(Player.symbolXO);
+            //ToDo: places X or O into the field of the grid
 
             console.log(Player.name + " made a move.")
         });        
@@ -49,6 +50,10 @@ const Player = (name, symbolXO) => {
     //return to access local scopes from global
     return {placeSymbol};
 };
+
+//ToDo: click on gameboard and add in the correct array index (not sure if required)
+const dataIndex = document.querySelectorAll(".data-index");
+dataIndex[i] = gameBoardXO[i];
 
 //create player objects
 const player1 = Player('Player1', 'X');

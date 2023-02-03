@@ -14,12 +14,11 @@
 //add display element that congratulates the winner
 
 //////---- START BELOW ----//////
+
 const gameBoardModule = (function() {
     'use strict';
-
     //board array
     let gameBoardXO = [];
-    return {gameBoardXO};
 
     //define winning combinations and starting player & game state
     const winningCombos = [
@@ -37,18 +36,13 @@ const gameBoardModule = (function() {
     let turn = 0;
     let winnerCombo = [];
 
-    //ToDo: player functions and flow of the game
-    const playerTurn = (function () {
-        const field = document.querySelectorAll(".field");
-        field.forEach()
-        //
-    });
-
     //ToDo: game state validation
-    let checkGame = () => {
+    let winCheck = () => {
         //ToDo: check for winning combos or determine a tie if board is full
         //ToDo: else continue the game
     }
+
+    return {gameBoardXO, winnerCombo, winner, winCheck};
 })();
 
 //controls the display
@@ -61,16 +55,32 @@ const displayControllerModule = (() => {
 //player factory function
 const Player = (name, symbolXO, turn) => {
     //what can players do
-    let placeSymbol = () => {
-        field.addEventListener("click", () => {
-            //ToDo: places X or O into the field of the grid
+    const placeSymbol = (function () {
+        const field = document.querySelectorAll(".field");
+        field.forEach(field => {
+            field.addEventListener('click', e => {
+                if (player1.turn == true && gameBoardModule.winner == null && e.target.textContent == '') {
+                    gameBoardXO[e.target.index] = player1.symbolXO;
+                    box.textContent = player1.symbolXO;
+                    player1.turn = false;
+                    player2.turn = true;
+                    console.log("Player1 made a move: " + gameBoardXO)
+                } else if (player2.turn == true && gameBoardModule.winner == null && e.target.textContent == '') {
+                    gameBoardXO[e.target.index] = player2.symbolXO;
+                    box.textContent = player2.symbolXO;
+                    player1.turn = true;
+                    player2.turn = false;
+                    console.log("Player2 made a move: " + gameBoardXO) 
+                } else {
+                    return;
+                };
 
-            console.log(Player.name + " made a move.")
-        });        
-    };
-
-    //return to access local scopes from global
-    return {placeSymbol};
+                winCheck();
+            });
+        });
+        return {field};
+    });
+    return {name, symbolXO, turn, placeSymbol};
 };
 
 //create player objects

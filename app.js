@@ -1,11 +1,11 @@
 ////STORE THE GAMEBOARD AS AN ARRAY INSIDE OF A GAMEBOARD OBJECT
 
 //module (one of each) for gameboard & displaycontroller
-//factory functions (multiples of) for players
+//factory functions for players (multiple of)
 
 //function that will render the contents of the gameboard array to the webpage
 
-//functions that allow players to add marks to a spot on the board
+//function that allow players to add marks to a spot on the board
 //then tie it to DOM, letting players click on gameboard to place marker
 
 //build logic to check when game is over

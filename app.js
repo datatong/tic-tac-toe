@@ -69,16 +69,16 @@ const Player = (name, symbolXO, turn) => {
                     field.textContent = player1.symbolXO;
                     player1.turn = false;
                     player2.turn = true;
-                    console.log("Player1 made a move: " + gameBoardModule.gameBoardXO);
+                    console.log("Player1 made a move. Current board array: " + gameBoardModule.gameBoardXO);
                 } else if (player2.turn == true && gameBoardModule.winner == null && e.target.textContent == '') {
                     gameBoardModule.gameBoardXO[e.target.id] = player2.symbolXO;
                     field.textContent = player2.symbolXO;
                     player1.turn = true;
                     player2.turn = false;
-                    console.log("Player2 made a move: " + gameBoardModule.gameBoardXO);
+                    console.log("Player2 made a move. Current board array: " + gameBoardModule.gameBoardXO);
                 } else {
                     return;
-                };
+                }
                 
                 winCheck();
             });
@@ -91,3 +91,6 @@ const Player = (name, symbolXO, turn) => {
 //PLAYER OBJECTS
 const player1 = Player('Player 1', 'X', true);
 const player2 = Player('Player 2', 'O', false);
+
+player1.placeSymbol();
+player2.placeSymbol();

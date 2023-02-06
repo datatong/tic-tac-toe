@@ -15,6 +15,7 @@
 
 //////---- START BELOW ----//////
 
+//GAMEBOARD MODULE
 const gameBoardModule = (function() {
     'use strict';
     //board array
@@ -47,14 +48,16 @@ const gameBoardModule = (function() {
     return {gameBoardXO, winnerCombo, winner, winCheck};
 })();
 
-//controls the display
+
+//CONTROLS THE DISPLAY
 const displayControllerModule = (() => {
     'use strict';
     //ToDo: display turn player
     //ToDo: display winner
 })();
 
-//player factory function
+
+//PLAYER FACTORY FUNCTION
 const Player = (name, symbolXO, turn) => {
     //player actions
     const placeSymbol = (function () {
@@ -76,7 +79,7 @@ const Player = (name, symbolXO, turn) => {
                 } else {
                     return;
                 };
-
+                
                 winCheck();
             });
         });
@@ -85,6 +88,6 @@ const Player = (name, symbolXO, turn) => {
     return {name, symbolXO, turn, placeSymbol};
 };
 
-//create player objects
+//PLAYER OBJECTS
 const player1 = Player('Player 1', 'X', true);
 const player2 = Player('Player 2', 'O', false);

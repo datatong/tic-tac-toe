@@ -23,26 +23,35 @@ const gameBoardModule = (function() {
 
     //define winning combinations and starting player & game state
     const winningCombos = [
-        [0,1,2],
-        [3,4,5],
-        [6,7,8],
-        [0,3,6],
-        [1,4,7],
-        [2,5,8],
-        [0,4,8],
-        [2,4,6]
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6]
     ];
 
     let winner = null;
     let turnCounter = 0;
     let winnerCombo = [];
 
-    //ToDo: game state validation
+    //game state validation
     let winCheck = () => {
-        //ToDo: check for winning combos btwn player X and O 
+        turnCounter++;
+        console.log(turnCounter + " turn(s) passed");
+        //Check for winning combo between X and O 
         //OR determine a tie if turnCounter is 9
         //ELSE continue the game
-        turnCounter++;
+
+        //check the index of each symbol of board array
+        /*
+        if current index == X, add that index to X array, then check next index;
+        if current index == O, add that index to O array, then check next index;
+        */
+        //does array X or array O include the winningCombos
+        
     }
 
     return {gameBoardXO, winnerCombo, winner, winCheck};
